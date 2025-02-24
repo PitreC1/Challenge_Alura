@@ -11,9 +11,13 @@ function agregarAmigo(){
         //cuando ingrese un nombre guarde en lista
         amigos.push(document.getElementById("amigo").value);
         document.getElementById("amigo").value = "";
+        actualizarListaAmigos();
     }   
 }
 
 function actualizarListaAmigos(){
-    
+    document.getElementById("resultado").innerHTML = "";
+    for (let i = 0; i < amigos.length; i++) {
+        document.getElementById("resultado").innerHTML = amigos.map(amigo => `<li>${amigo}</li>`).join('');
+    }   
 }
